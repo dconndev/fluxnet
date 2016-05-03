@@ -6,29 +6,36 @@ Copyright Apple Inc. 2016, All Rights Reserved.
 !-->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>fluxnet</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="assets/css/bootstrap.css">
-    </head>
-    <body>
-        <?php include "core/nav.php"; ?>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>fluxnet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <?php include "core/nav.php"; ?>
         <div class="container">
-            <!-- View Frame !-->
+            <!-- Action Frame !-->
             <div class="col-md-9">
-            <?php
+                <?php
               $action = $_GET['action'];
               $action = basename($action);
-              include "views/view.homepage_loggedOut.php";
+              include "actions/$action.php";
             ?>
             </div>
-            
+
             <!-- PlugIn Frame !-->
             <div class="col-md-3">
-                <?php include "views/view.profile.php"; ?>
+                <?php include "actions/action.profile.php"; ?>
             </div>
         </div>
-    </body>
+
+        <!-- Scripts !-->
+        <script src="assets/js/jquery-1.10.2.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
 </html>
